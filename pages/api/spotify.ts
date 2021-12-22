@@ -19,11 +19,6 @@ export default async function spotify(
   const artist = song.item.artists.map((artist) => artist.name).join(", ");
   const url = song.item.external_urls.spotify;
 
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=60, stale-while-revalidate=30"
-  );
-
   return res.status(200).json({
     isPlaying,
     title,
