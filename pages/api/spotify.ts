@@ -8,11 +8,11 @@ export default async function spotify(
 ) {
   const response = await getNowPlaying();
   if (response.status === 204 || response.status > 400)
-    return res.status(200).send({ isPlaying: false });
+    return res.status(200).json({ isPlaying: false });
 
   const song = (await response.json()) as NowPlaying;
 
-  if (song.item === null) return res.status(200).send({ isPlaying: false });
+  if (song.item === null) return res.status(200).json({ isPlaying: false });
 
   const isPlaying = song.is_playing;
   const title = song.item.name;
