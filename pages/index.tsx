@@ -1,6 +1,7 @@
 import { FadeInUp } from "components/FadeInUp";
 import { NowPlaying } from "components/NowPlaying";
 import type { NextPage } from "next";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
@@ -9,6 +10,9 @@ const Home: NextPage = () => {
     bg-gray-100 dark:bg-gray-800
     text-gray-700 dark:text-gray-300"
     >
+      <Head>
+        <title>Some Random Developer&apos;s Website</title>
+      </Head>
       <div className="flex flex-col gap-4 text-center w-10/12 md:w-2/3 lg:w-1/2">
         <FadeInUp>
           <a href="https://www.github.com/neelkarma">
