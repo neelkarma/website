@@ -10,9 +10,10 @@ const unsplash = createApi({
 const image = async (_req: NextApiRequest, res: NextApiResponse) => {
   const photo = await unsplash.photos
     .getRandom({ query: "night landscape" })
-    .catch((error) =>
-      res.status(500).json({ error: `Unsplash API Error: ${error}` })
-    );
+    .catch((error) => {
+      console.error(`Unsplash API Error: ${error}`);
+      res.status(500).json({ error: `Unsplash API Error: ${error}` });
+    });
   if (!photo) return;
   if (!photo.response) return res.status(500).json({ error: photo.errors[0] });
   if (Array.isArray(photo.response))
