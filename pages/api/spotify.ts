@@ -2,10 +2,7 @@ import { getNowPlaying } from "lib/spotify";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { NowPlaying } from "types/spotify";
 
-export default async function spotify(
-  _res: NextApiRequest,
-  res: NextApiResponse
-) {
+const spotify = async (_res: NextApiRequest, res: NextApiResponse) => {
   const response = await getNowPlaying();
   if (response.status === 204 || response.status > 400)
     return res.status(200).json({ isPlaying: false });
@@ -25,4 +22,6 @@ export default async function spotify(
     artist,
     url,
   });
-}
+};
+
+export default spotify;

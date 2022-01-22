@@ -10,12 +10,19 @@
   "dependencies": {
     "@fontsource/chivo": "^4.5.0",
     "@fontsource/inter": "^4.5.1",
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^12.0.8",
     "framer-motion": "^5.5.5",
+    "highlight.js": "^11.4.0",
     "next": "12.0.7",
     "node-fetch": "^3.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "swr": "^1.1.1"
+    "react-icons": "^4.3.1",
+    "rehype-highlight": "^5.0.2",
+    "remark-gfm": "^3.0.1",
+    "swr": "^1.1.1",
+    "unsplash-js": "^7.0.15"
   },
   "devDependencies": {
     "@types/node": "17.0.2",

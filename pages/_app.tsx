@@ -1,10 +1,11 @@
 import "styles/globals.css";
 import "@fontsource/chivo";
 import "@fontsource/inter";
+import "highlight.js/styles/atom-one-dark.css";
 import { SWRConfig } from "swr";
 import type { AppProps } from "next/app";
 
-function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <SWRConfig
       value={{
@@ -15,6 +16,6 @@ function App({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
     </SWRConfig>
   );
-}
+};
 
 export default App;
