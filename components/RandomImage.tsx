@@ -10,7 +10,6 @@ export const RandomImage: FC = () => {
     return (
       <div className="w-[120px] h-[120px] rounded-full bg-gray-700 animate-pulse"></div>
     );
-  console.log(res.data);
 
   return (
     <div className="rounded-full">
