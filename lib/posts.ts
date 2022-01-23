@@ -1,4 +1,5 @@
 import { readdirSync, readFileSync } from "fs";
+import getConfig from "next/config";
 import matter from "gray-matter";
 import { unified } from "unified";
 import remarkGfm from "remark-gfm";
@@ -8,6 +9,8 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import path from "path";
 
+const { serverRuntimeConfig } = getConfig();
+
 export interface PostMeta {
   title: string;
   description: string;
@@ -16,9 +19,15 @@ export interface PostMeta {
 }
 
 export const getAllPosts = () => {
-  console.log(readdirSync(path.join(__dirname, "../../../")));
-  return readdirSync(path.join(__dirname, "../../../blog/")).map((file) =>
-    matter(readFileSync(path.join(__dirname, `../../../blog/${file}`), "utf-8"))
+  return readdirSync(
+    path.join(serverRuntimeConfig.PROJECT_ROOT, "./blog/")
+  ).map((file) =>
+    matter(
+      readFileSync(
+        path.join(serverRuntimeConfig.PROJECT_ROOT, `./blog/${file}`),
+        "utf-8"
+      )
+    )
   );
 };
 

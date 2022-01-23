@@ -20,7 +20,7 @@ const Blog: NextPage<{ posts: PostMeta[] }> = ({ posts }) => {
           },
         ]}
       />
-      <Heading title="Blog" subtitle="Don't expect me to update every day." />
+      <Heading title="Blog" subtitle="Don't expect me to update often." />
       <hr className="border-gray-700" />
       {posts.length ? (
         posts.map((post, i) => <PostPreview meta={post} key={i} />)
