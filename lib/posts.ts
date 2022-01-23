@@ -6,6 +6,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import path from "path";
 
 export interface PostMeta {
   title: string;
@@ -15,8 +16,8 @@ export interface PostMeta {
 }
 
 export const getAllPosts = () => {
-  return readdirSync("./blog/").map((file) =>
-    matter(readFileSync(`./blog/${file}`, "utf-8"))
+  return readdirSync(path.join(__dirname, "../../../blog/")).map((file) =>
+    matter(readFileSync(path.join(__dirname, `../../../blog/${file}`), "utf-8"))
   );
 };
 

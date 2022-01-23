@@ -26,7 +26,7 @@ const Blog: NextPage<{ posts: PostMeta[] }> = ({ posts }) => {
         posts.map((post, i) => <PostPreview meta={post} key={i} />)
       ) : (
         <p className="py-4 text-center text-xl text-gray-500">
-          Doesn&apos;t look like I&apos;ve posted anything yet. Whoops...
+          Doesn&apos;t look like I&apos;ve posted anything yet. My bad.
         </p>
       )}
     </ContentLayout>
