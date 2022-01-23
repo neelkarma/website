@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.bio-link {
-  @apply font-bold transition underline decoration-2;
+@layer components {
+  .bio-link {
+    @apply font-bold transition underline decoration-2;
+  }
+}
+
+:root {
+  color-scheme: dark;
 }

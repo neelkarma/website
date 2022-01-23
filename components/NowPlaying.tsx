@@ -14,7 +14,7 @@ export const NowPlaying: FC<{}> = () => {
           Playing{" "}
           <a
             href={data.url}
-            className="transition text-gray-400 hover:text-gray-300"
+            className="transition-colors text-gray-400 hover:text-gray-300"
           >
             {data.artist} - {data.title}
           </a>

@@ -1,8 +1,6 @@
-const withMDX = require("@next/mdx")();
-
-module.exports = withMDX({
+module.exports = {
   reactStrictMode: true,
   images: {
     domains: ["images.unsplash.com"],
   },
-});
+};

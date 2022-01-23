@@ -3,30 +3,27 @@ import { FadeInUp } from "components/FadeInUp";
 import { NowPlaying } from "components/NowPlaying";
 import { LinkButton } from "components/LinkButton";
 import type { NextPage } from "next";
-import Head from "next/head";
 import { FaCode, FaGithub, FaPen } from "react-icons/fa";
 import { RandomImage } from "components/RandomImage";
+import { Layout } from "components/Layout";
 
 const Home: NextPage = () => {
   return (
-    <div
-      className="px-6 md:px-24 lg:px-48 flex min-h-screen justify-center items-center flex-col font-body
-    bg-gray-800
-    text-gray-300"
+    <Layout
+      title="Home"
+      description="Home"
+      className="justify-center items-center"
     >
-      <Head>
-        <title>Some Random Developer&apos;s Website</title>
-      </Head>
       <div className="flex flex-col gap-4">
         <FadeInLeft>
           <RandomImage />
         </FadeInLeft>
-        <FadeInLeft delay={0.5}>
+        <FadeInLeft delay={0.2}>
           <h1 className="transition font-bold text-3xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-heading">
             I am a random developer on the internet.
           </h1>
         </FadeInLeft>
-        <FadeInLeft delay={1}>
+        <FadeInLeft delay={0.4}>
           <p className="text-lg">
             A musical nerd, a fullstack developer, familiar with{" "}
             <a
@@ -56,30 +53,33 @@ const Home: NextPage = () => {
             >
               Python
             </a>{" "}
-            and making various discord bots.
+            and addicted to beautiful UIs.
           </p>
         </FadeInLeft>
         <div className="flex gap-3">
-          <FadeInUp delay={1.5}>
+          <FadeInUp delay={0.6}>
             <LinkButton
               href="https://www.github.com/neelkarma"
               label="GitHub"
               icon={FaGithub}
             />
           </FadeInUp>
-          <FadeInUp delay={1.7}>
+          <FadeInUp delay={0.8}>
             <LinkButton
               href="https://github.com/neelkarma?tab=repositories"
               label="Projects"
               icon={FaCode}
             />
           </FadeInUp>
+          <FadeInUp delay={1}>
+            <LinkButton href="/blog" label="Blog" icon={FaPen} />
+          </FadeInUp>
         </div>
-        <FadeInLeft delay={2.3}>
+        <FadeInLeft delay={1.2}>
           <NowPlaying />
         </FadeInLeft>
       </div>
-    </div>
+    </Layout>
   );
 };
 
