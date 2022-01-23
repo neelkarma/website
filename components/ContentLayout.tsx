@@ -14,7 +14,7 @@ export const ContentLayout: FC<{
     >
       <div
         className={`
-          flex flex-col gap-3 md:gap-4
+          flex flex-col gap-3 md:gap-4 pb-8
           w-full md:w-[65ch] lg:w-[75ch] md:pl-8
           md:border-l-gray-700 md:border-l-2 md:border-dotted
           ${className}`}

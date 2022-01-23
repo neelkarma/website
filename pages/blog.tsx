@@ -22,13 +22,9 @@ const Blog: NextPage<{ posts: PostMeta[] }> = ({ posts }) => {
       />
       <Heading title="Blog" subtitle="Don't expect me to update often." />
       <hr className="border-gray-700" />
-      {posts.length ? (
-        posts.map((post, i) => <PostPreview meta={post} key={i} />)
-      ) : (
-        <p className="py-4 text-center text-xl text-gray-500">
-          Doesn&apos;t look like I&apos;ve posted anything yet. My bad.
-        </p>
-      )}
+      {posts.map((post, i) => (
+        <PostPreview meta={post} key={i} />
+      ))}
     </ContentLayout>
   );
 };
