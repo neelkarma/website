@@ -19,15 +19,13 @@ const image = async (_req: NextApiRequest, res: NextApiResponse) => {
   if (Array.isArray(photo.response))
     return res.status(500).json({ error: "Unsplash API returned an array." });
 
-  const userURL = photo.response.user.links.self;
+  const userURL =
+    photo.response.user.links.html + "?utm_source=website&utm_medium=referral";
   const userFullName = photo.response.user.name;
-  const photoURL = photo.response.urls.regular;
-  const photoBlurURL = photo.response.urls.thumb;
+  const photoURL = photo.response.urls.small;
   const description = photo.response.description;
 
-  res
-    .status(200)
-    .json({ userURL, userFullName, photoURL, photoBlurURL, description });
+  res.status(200).json({ userURL, userFullName, photoURL, description });
 };
 
 export default image;

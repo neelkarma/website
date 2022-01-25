@@ -13,19 +13,19 @@ export const RandomImage: FC = () => {
 
   return (
     <div className="rounded-full">
-      <Image
-        placeholder="blur"
-        blurDataURL={res.data.photoBlurURL}
-        src={res.data.photoURL}
-        alt={
-          res.data.description ??
-          `Photo by ${res.data.userFullName} on Unsplash`
-        }
-        title={`Photo by ${res.data.userFullName} on Unsplash`}
-        className="rounded-full"
-        width="120px"
-        height="120px"
-      />
+      <a href={res.data.userURL} target="_blank" rel="noreferrer">
+        <Image
+          src={res.data.photoURL}
+          alt={
+            res.data.description ??
+            `Photo by ${res.data.userFullName} on Unsplash`
+          }
+          title={`Photo by ${res.data.userFullName} on Unsplash`}
+          className="rounded-full"
+          width="120px"
+          height="120px"
+        />
+      </a>
     </div>
   );
 };
