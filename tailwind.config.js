@@ -8,8 +8,7 @@ module.exports = {
     fontFamily: {
       heading: ["Inter", "sans-serif"],
       body: ["Chivo", "sans-serif"],
-      serif: ["Newsreader", "Times New Roman"],
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 };

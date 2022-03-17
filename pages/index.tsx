@@ -3,9 +3,10 @@ import { FadeInUp } from "components/FadeInUp";
 import { NowPlaying } from "components/NowPlaying";
 import { LinkButton } from "components/LinkButton";
 import type { NextPage } from "next";
-import { FaCode, FaGithub, FaPen } from "react-icons/fa";
+import { FaCode, FaGithub } from "react-icons/fa";
 import { RandomImage } from "components/RandomImage";
 import { Layout } from "components/Layout";
+import { HomeTitle } from "components/HomeTitle";
 
 const Home: NextPage = () => {
   return (
@@ -19,13 +20,13 @@ const Home: NextPage = () => {
           <RandomImage />
         </FadeInLeft>
         <FadeInLeft delay={0.2}>
-          <h1 className="transition font-bold text-3xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-heading">
-            I am a random developer on the internet.
-          </h1>
+          <HomeTitle>
+            Hi there. I like making computers do cool stuff.
+          </HomeTitle>
         </FadeInLeft>
         <FadeInLeft delay={0.4}>
           <p className="text-lg">
-            A musical nerd, a fullstack developer, familiar with{" "}
+            I&apos;m a musical nerd, a fullstack developer, familiar with{" "}
             <a
               href="https://www.typescriptlang.org"
               className="bio-link decoration-blue-500 hover:decoration-blue-300"
@@ -70,9 +71,6 @@ const Home: NextPage = () => {
               label="Projects"
               icon={FaCode}
             />
-          </FadeInUp>
-          <FadeInUp delay={1}>
-            <LinkButton href="/blog" label="Blog" icon={FaPen} />
           </FadeInUp>
         </div>
         <FadeInLeft delay={1.2}>

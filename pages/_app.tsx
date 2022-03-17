@@ -1,8 +1,6 @@
 import "styles/globals.css";
 import "@fontsource/chivo";
 import "@fontsource/inter";
-import "@fontsource/newsreader";
-import "highlight.js/styles/atom-one-dark.css";
 import { SWRConfig } from "swr";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
