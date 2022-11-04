@@ -6,7 +6,7 @@
   <title>iamkneel uses</title>
 </head>
 
-<h3><a href="/" use:bounce>back</a></h3>
+<h3><a href="/" style="text-decoration: none;" use:bounce>back</a></h3>
 <h3 use:bounce>some random kogan monitor</h3>
 <h3 use:bounce>vava usb-c dock</h3>
 <h3 use:bounce>a desk lamp</h3>
