@@ -25,7 +25,7 @@
 <h3 use:bounce>some random overused dell membrane keyboard</h3>
 <h3 use:bounce>some random overused hp office mouse</h3>
 <h3 use:bounce>a pair of soundmagic e11c's</h3>
-<h3 use:bounce>a pair of taotronics soundsurge 85</h3>
+<h3 use:bounce>a pair of taotronics soundsurge 85's</h3>
 <h3 use:bounce>a bed</h3>
 <h3 use:bounce>a chair</h3>
 <h3 use:bounce>a table</h3>
