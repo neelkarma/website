@@ -7,6 +7,12 @@
 </head>
 
 <h3><a href="/" use:bounce>back</a></h3>
+<h3 use:bounce>some random kogan monitor</h3>
+<h3 use:bounce>vava usb-c dock</h3>
+<h3 use:bounce>a desk lamp</h3>
+<h3 use:bounce>a casio fx-82 au plus ii</h3>
+<h3 use:bounce>a yamaha electric piano</h3>
+<h3 use:bounce>xbox one</h3>
 <h3 use:bounce>vscode</h3>
 <h3 use:bounce>vivaldi</h3>
 <h3 use:bounce>notion</h3>
