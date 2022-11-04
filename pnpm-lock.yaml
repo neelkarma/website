@@ -4,7 +4,6 @@ specifiers:
   '@fontsource/ibm-plex-mono': ^4.5.12
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
-  stream: ^0.0.2
   svelte: ^3.44.0
   svelte-check: ^2.7.1
   svelte-preprocess: ^4.10.6
@@ -18,7 +17,6 @@ dependencies:
 devDependencies:
   '@sveltejs/adapter-auto': 1.0.0-next.86
   '@sveltejs/kit': 1.0.0-next.532_svelte@3.52.0+vite@3.2.2
-  stream: 0.0.2
   svelte: 3.52.0
   svelte-check: 2.9.2_svelte@3.52.0
   svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
@@ -406,10 +404,6 @@ packages:
 
   /devalue/4.2.0:
     resolution: {integrity: sha512-mbjoAaCL2qogBKgeFxFPOXAUsZchircF+B/79LD4sHH0+NHfYm8gZpQrskKDn5gENGt35+5OI1GUF7hLVnkPDw==}
-    dev: true
-
-  /emitter-component/1.1.1:
-    resolution: {integrity: sha512-G+mpdiAySMuB7kesVRLuyvYRqDmshB7ReKEVuyBPkzQlmiDiLrt7hHHIy4Aff552bgknVN7B2/d3lzhGO5dvpQ==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -1161,12 +1155,6 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
-    dev: true
-
-  /stream/0.0.2:
-    resolution: {integrity: sha512-gCq3NDI2P35B2n6t76YJuOp7d6cN/C7Rt0577l91wllh0sY9ZBuw9KaSGqH/b0hzn3CWWJbpbW0W0WvQ1H/Q7g==}
-    dependencies:
-      emitter-component: 1.1.1
     dev: true
 
   /streamsearch/1.1.0:
