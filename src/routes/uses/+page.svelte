@@ -6,7 +6,6 @@
   <title>iamkneel uses</title>
 </head>
 
-<h3><a href="/" style="text-decoration: none;" use:bounce>back</a></h3>
 <h3 use:bounce>some random kogan monitor</h3>
 <h3 use:bounce>vava usb-c dock</h3>
 <h3 use:bounce>a desk lamp</h3>
@@ -47,4 +46,14 @@
 <h3 use:bounce>a bed</h3>
 <h3 use:bounce>a chair</h3>
 <h3 use:bounce>a table</h3>
-<h1 use:bounce>have fun finding the back button</h1>
+<h1 use:bounce>
+  have fun finding the <a href="/" id="back-button">back</a> button
+</h1>
+
+<style>
+  #back-button {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
