@@ -1,20 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   color-scheme: dark;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  @apply font-sans text-base text-white h-screen w-screen;
+
+  background-image: radial-gradient(#333 2px, transparent 2px),
+    radial-gradient(#333 2px, transparent 2px);
   background-color: black;
-
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 1.5rem;
-  color: white;
-}
-
-* {
-  position: absolute;
-  width: max-content;
-  margin: 0;
-  padding: 0;
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
 }

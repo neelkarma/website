@@ -1,21 +1,23 @@
 <script lang="ts">
-  import { bounce } from "$lib/bounce";
+  import { slideFromLeft } from "$lib/slideFromLeft";
 
-  let content = "discord";
+  let showCopiedMsg = false;
 
   const handleClick = async () => {
     await navigator.clipboard.writeText("iamkneel#2359");
-    content = "tag copied";
-    setTimeout(() => (content = "discord"), 1000);
+    showCopiedMsg = true;
+    setTimeout(() => (showCopiedMsg = false), 1000);
   };
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<h2 role="button" use:bounce on:click={handleClick}>{content}</h2>
-
-<style>
-  h2 {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-</style>
+<div class="flex gap-1 items-center">
+  <i
+    role="button"
+    class="fa-brands fa-discord interactable"
+    on:click={handleClick}
+  />
+  {#if showCopiedMsg}
+    <p transition:slideFromLeft class="text-lg text-neutral-300">tag copied!</p>
+  {/if}
+</div>

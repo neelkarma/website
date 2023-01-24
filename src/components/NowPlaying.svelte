@@ -1,20 +1,31 @@
 <script lang="ts">
-  import { bounce } from "$lib/bounce";
-  import type { ClientNowPlaying } from "src/routes/api/spotify/types";
+  import { onMount } from "svelte";
+  import type { ClientNowPlaying } from "../routes/api/spotify/types";
 
-  let promise = fetch("/api/spotify").then(
-    (res) => res.json() as Promise<ClientNowPlaying>
-  );
+  let promise: Promise<ClientNowPlaying>;
+
+  onMount(() => {
+    promise = fetch("/api/spotify").then(
+      (res) => res.json() as Promise<ClientNowPlaying>
+    );
+  });
 </script>
 
-{#await promise then res}
-  {#if res.isPlaying}
-    <h3>
-      <a href={res.url} use:bounce
-        >currently listening to {res.title?.toLowerCase()} by {res.artist?.toLowerCase()}</a
-      >
-    </h3>
+<div class="flex gap-2 items-center text-neutral-300">
+  <i class="fa-brands fa-spotify text-lg" />
+  {#if promise}
+    {#await promise}
+      loading...
+    {:then res}
+      {#if res.isPlaying}
+        <a href={res.url} class="interactable"
+          >currently listening to {res.title} by {res.artist}</a
+        >
+      {:else}
+        nothing playing right now
+      {/if}
+    {/await}
   {:else}
-    <h3 use:bounce>currently listening to nothing</h3>
+    loading...
   {/if}
-{/await}
+</div>
