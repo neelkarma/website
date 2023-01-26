@@ -1,9 +1,9 @@
-import type { AccessToken } from "./types";
 import {
   SPOTIFY_CLIENT_ID as CLIENT_ID,
   SPOTIFY_CLIENT_SECRET as CLIENT_SECRET,
   SPOTIFY_REFRESH_TOKEN as REFRESH_TOKEN,
 } from "$env/static/private";
+import type { AccessToken, ClientNowPlaying, NowPlaying } from "./types";
 
 const BASIC = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
 const NOW_PLAYING_ENDPOINT =
@@ -23,7 +23,7 @@ const getAccessToken = async () =>
     }),
   }).then((res) => res.json())) as AccessToken;
 
-export const getNowPlaying = async () => {
+export const getNowPlayingAPI = async () => {
   const { access_token } = await getAccessToken();
 
   return await fetch(NOW_PLAYING_ENDPOINT, {
@@ -31,4 +31,25 @@ export const getNowPlaying = async () => {
       Authorization: `Bearer ${access_token}`,
     },
   });
+};
+
+export const getNowPlaying = async (): Promise<ClientNowPlaying> => {
+  const res = await getNowPlayingAPI();
+  if (res.status === 204 || res.status > 400) return { isPlaying: false };
+
+  const song = (await res.json()) as NowPlaying;
+
+  if (song.item === null) return { isPlaying: false };
+
+  const isPlaying = song.is_playing;
+  const title = song.item.name;
+  const artists = song.item.artists.map((artist) => artist.name);
+  const url = song.item.external_urls.spotify;
+
+  return {
+    isPlaying,
+    title,
+    artists,
+    url,
+  };
 };

@@ -92,6 +92,6 @@ export interface AccessToken {
 export interface ClientNowPlaying {
   isPlaying: boolean;
   title?: string;
-  artist?: string;
+  artists?: string[];
   url?: string;
 }
