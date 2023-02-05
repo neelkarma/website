@@ -21,7 +21,7 @@
     <GlitchHeading content="iamkneel" />
   </div>
   <p in:slide={{ duration: 800, delay: 300 }} class="text-xl font-bold">
-    swiss army developer.
+    i push <s>big red</s> buttons and stuff happens.
   </p>
   <div in:slide={{ duration: 800, delay: 500 }}>
     <NowPlaying data={data.spotify} />
