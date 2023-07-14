@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { enter } from "$lib/transitions";
   import { onMount } from "svelte";
-  import { slide } from "svelte/transition";
+  import Clock from "../components/Clock.svelte";
   import DiscordTag from "../components/DiscordTag.svelte";
   import GlitchHeading from "../components/GlitchHeading.svelte";
   import NowPlaying from "../components/NowPlaying.svelte";
@@ -12,26 +13,29 @@
   onMount(() => (animate = true));
 </script>
 
-<head>
+<svelte:head>
   <title>iamkneel</title>
-</head>
+</svelte:head>
 
 {#if animate}
-  <div in:slide={{ duration: 800 }}>
+  <div in:enter>
+    <Clock />
+  </div>
+  <div in:enter={{ stagger: 1 }}>
     <GlitchHeading content="iamkneel" />
   </div>
-  <p in:slide={{ duration: 800, delay: 300 }} class="text-xl font-bold">
+  <p in:enter={{ stagger: 2 }} class="text-xl font-bold">
     i push <s>big red</s> buttons and stuff happens.
   </p>
-  <div in:slide={{ duration: 800, delay: 500 }}>
+  <div in:enter={{ stagger: 3 }}>
     <NowPlaying data={data.spotify} />
   </div>
-  <div
-    in:slide={{ duration: 800, delay: 700 }}
-    class="flex gap-3 text-2xl items-center"
-  >
-    <a class="interactable" href="https://github.com/neelkarma"
-      ><i class="fa-brands fa-github interactable" /></a
+  <div in:enter={{ stagger: 4 }} class="flex gap-3 text-2xl items-center">
+    <a class="interactive" href="https://github.com/neelkarma"
+      ><i class="fa-brands fa-github" /></a
+    >
+    <a class="interactive" href="https://codepen.io/iamkneel"
+      ><i class="fa-brands fa-codepen" /></a
     >
     <DiscordTag />
   </div>

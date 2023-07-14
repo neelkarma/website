@@ -4,13 +4,11 @@
   export let data: ClientNowPlaying;
 </script>
 
-<div class="flex gap-2 items-center text-neutral-300">
+<a class="flex gap-2 items-center text-neutral-300 interactive" href={data.url}>
   <i class="fa-brands fa-spotify text-lg" />
   {#if data.isPlaying}
-    <a href={data.url} class="interactable"
-      >currently listening to {data.title} by {data.artists?.join(", ")}</a
-    >
+    {data.artists?.join(", ")} - {data.title}
   {:else}
     nothing playing right now
   {/if}
-</div>
+</a>

@@ -1,5 +1,5 @@
-<div class="flex w-screen h-screen justify-center items-center">
-  <div class="flex flex-col gap-2">
+<div class="grid min-w-screen min-h-screen place-items-center">
+  <div class="flex flex-col gap-2 items-start">
     <slot />
   </div>
 </div>
