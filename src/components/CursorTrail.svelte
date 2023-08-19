@@ -1,29 +1,31 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { cubicOut } from "svelte/easing";
+  import { quartOut } from "svelte/easing";
   import { tweened } from "svelte/motion";
+
+  let border = 2;
 
   let coords = tweened(
     { x: 0, y: 0 },
     {
-      duration: 600,
-      easing: cubicOut,
+      duration: 700,
+      easing: quartOut,
     }
   );
 
   let dotCoords = tweened(
     { x: 50, y: 50 },
-    { duration: 100, easing: cubicOut }
+    { duration: 200, easing: quartOut }
   );
 
-  let size = tweened(100, {
-    duration: 300,
-    easing: cubicOut,
+  let size = tweened(80, {
+    duration: 500,
+    easing: quartOut,
   });
 
   let invert = tweened(0, {
-    duration: 300,
-    easing: cubicOut,
+    duration: 500,
+    easing: quartOut,
   });
 
   $: if (browser) {
@@ -36,9 +38,11 @@
     if ((e.target as HTMLElement).closest(".interactive") !== null) {
       invert.set(100);
       size.set(130);
+      border = 1;
     } else {
       invert.set(0);
-      size.set(100);
+      size.set(80);
+      border = 2;
     }
     coords.set({
       x: e.clientX,
@@ -51,11 +55,11 @@
   };
 
   const handleMouseDown = (e: MouseEvent) => {
-    size.set(70);
+    size.set(50);
   };
 
   const handleMouseUp = (e: MouseEvent) => {
-    size.set(100);
+    size.set(80);
   };
 </script>
 
@@ -72,6 +76,7 @@
   style:width={`${$size}px`}
   style:height={`${$size}px`}
   style:backdrop-filter={`invert(${$invert}%)`}
+  style:border={`${border}px solid white`}
 />
 
 <div
@@ -85,7 +90,6 @@
     position: absolute;
     transform: translate(-50%, -50%);
     border-radius: 50% 50%;
-    border: 2px solid white;
     pointer-events: none;
     z-index: 10001;
   }

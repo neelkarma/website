@@ -14,6 +14,7 @@
 <div class="flex gap-1 items-center">
   <i
     role="button"
+    tabindex={0}
     class="fa-brands fa-discord interactive"
     on:click={handleClick}
   />

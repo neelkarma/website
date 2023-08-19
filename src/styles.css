@@ -7,8 +7,9 @@
 }
 
 body {
-  @apply font-sans text-base text-white h-screen w-screen;
+  @apply font-sans text-base text-white h-screen w-screen overflow-hidden select-none;
 
+  /* please for the love of god do NOT touch this */
   background-image: radial-gradient(#333 2px, transparent 2px),
     radial-gradient(#333 2px, transparent 2px);
   background-color: black;

@@ -1,9 +1,9 @@
-import { cubicOut } from "svelte/easing";
-import { fly, type TransitionConfig } from "svelte/transition";
+import { quartOut } from "svelte/easing";
+import type { TransitionConfig } from "svelte/transition";
 
 export const slideFromLeft = (
   node: Element,
-  { delay = 0, duration = 400, easing = cubicOut } = {}
+  { delay = 0, duration = 400, easing = quartOut } = {}
 ): TransitionConfig => {
   const width = parseFloat(getComputedStyle(node).width);
 
@@ -16,14 +16,13 @@ export const slideFromLeft = (
   };
 };
 
-export const enter = (
-  node: Element,
-  { stagger = 0 } = {}
-): TransitionConfig => {
-  return fly(node, {
-    y: 30,
-    delay: stagger * 150,
-    duration: 800,
-    easing: cubicOut,
-  });
+export const enter = (_: Element, { stagger = 0 } = {}): TransitionConfig => {
+  const y = 30;
+
+  return {
+    delay: stagger * 200,
+    duration: 1200,
+    easing: quartOut,
+    css: (t, u) => `transform: translateY(${u * y}px);` + `opacity: ${t}`,
+  };
 };
