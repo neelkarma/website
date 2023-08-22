@@ -54,11 +54,11 @@
     });
   };
 
-  const handleMouseDown = (e: MouseEvent) => {
+  const handleMouseDown = () => {
     size.set(50);
   };
 
-  const handleMouseUp = (e: MouseEvent) => {
+  const handleMouseUp = () => {
     size.set(80);
   };
 </script>
