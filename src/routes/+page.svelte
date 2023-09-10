@@ -2,7 +2,6 @@
   import { enter } from "$lib/transitions";
   import { onMount } from "svelte";
   import Clock from "../components/Clock.svelte";
-  import DiscordTag from "../components/DiscordTag.svelte";
   import GlitchHeading from "../components/GlitchHeading.svelte";
   import NowPlaying from "../components/NowPlaying.svelte";
   import type { PageData } from "./$types";
@@ -37,6 +36,5 @@
     <a class="interactive" href="https://codepen.io/iamkneel"
       ><i class="fa-brands fa-codepen" /></a
     >
-    <DiscordTag />
   </div>
 {/if}
