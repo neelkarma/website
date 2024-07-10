@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { readable } from "svelte/store";
+  import { onMount } from "svelte";
 
   const formatter = Intl.DateTimeFormat([], {
     timeZone: "Australia/Sydney",
@@ -9,12 +9,13 @@
     hour12: true,
   });
 
-  let time = readable(formatter.format(new Date()), (set) => {
-    const update = () => set(formatter.format(new Date()).toUpperCase());
-    update();
-    const interval = setInterval(update, 1000);
+  let time = new Date();
+  $: formatted = formatter.format(time);
+
+  onMount(() => {
+    const interval = setInterval(() => (time = new Date()));
     return () => clearInterval(interval);
   });
 </script>
 
-<p class="text-gray-400 italic">{$time} AEST</p>
+<p class="text-gray-400 italic">{formatted} AEST</p>

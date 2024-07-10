@@ -1,4 +1,4 @@
-import { getNowPlaying } from "$lib/spotify/spotify";
+import { getNowPlaying } from "$lib/spotify";
 import type { PageServerLoad } from "./$types";
 
 export const load = (async () => {
