@@ -1,6 +1,7 @@
 <script lang="ts">
   let showDiscordCopiedTimeout = $state<number | null>(null);
   function handleCopyDiscord() {
+    navigator.clipboard.writeText("iamkneel");
     if (showDiscordCopiedTimeout) clearTimeout(showDiscordCopiedTimeout);
     showDiscordCopiedTimeout = setTimeout(() => (showDiscordCopiedTimeout = null), 1000);
   }
