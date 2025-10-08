@@ -5,7 +5,7 @@
   ╱|、
 (˚ˎ 。7
  |、˜〵
-じしˍ,)ノ
+ じしˍ,)ノ
   </pre>
 
   <span class="text-center"
