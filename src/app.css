@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-*: initial;
+  --font-body: "Rubik", sans-serif;
+  --font-header: "Fira Mono", monospace;
+}
+
+@layer base {
+  :root {
+    @apply font-body bg-zinc-800 md:bg-zinc-900 text-zinc-200;
+  }
+}
