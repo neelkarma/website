@@ -3,6 +3,10 @@
   import Contact from "$lib/components/Contact.svelte";
 </script>
 
+<svelte:head>
+  <title>iamkneel</title>
+</svelte:head>
+
 <p class="text-lg">19 🇦🇺, Self-Taught Developer, Engineer, Teacher, and Student</p>
 
 <div class="space-y-4">
