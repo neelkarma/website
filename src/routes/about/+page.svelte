@@ -1,5 +1,6 @@
 <script>
   import Contact from "$lib/components/Contact.svelte";
+  import TextLink from "$lib/components/TextLink.svelte";
 </script>
 
 <svelte:head>
@@ -16,12 +17,7 @@
     Daily driving Arch Linux <span class="text-gray-500">(btw)</span>
   </li>
   <li>Always learning more</li>
-  <li>
-    <a
-      class="underline decoration-zinc-600 underline-offset-4 hover:decoration-zinc-200"
-      href="/resume.pdf">Here's my resume</a
-    >
-  </li>
+  <li><TextLink href="/resume.pdf">Here's my resume</TextLink></li>
 </ul>
 
 <Contact />

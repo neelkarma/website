@@ -3,6 +3,7 @@
   import "@fontsource/rubik";
   import "@fontsource/fira-mono/500";
   import "iconify-icon";
+  import TextLink from "$lib/components/TextLink.svelte";
 
   let { children } = $props();
 </script>
@@ -22,20 +23,9 @@
     >
     <span class="md:grow"></span>
     <div class="flex gap-3 md:flex-row md:gap-4">
-      <a
-        href="/about"
-        class="underline decoration-zinc-600 underline-offset-4 hover:decoration-zinc-200">/about</a
-      >
-      <a
-        href="/projects"
-        class="underline decoration-zinc-600 underline-offset-4 hover:decoration-zinc-200"
-        >/projects</a
-      >
-      <a
-        href="/writing"
-        class="underline decoration-zinc-600 underline-offset-4 hover:decoration-zinc-200"
-        >/writing</a
-      >
+      <TextLink href="/about">/about</TextLink>
+      <TextLink href="/projects">/projects</TextLink>
+      <TextLink href="/writing">/writing</TextLink>
     </div>
   </div>
 
