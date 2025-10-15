@@ -28,12 +28,6 @@
 		"typescript": "^5.9.3",
 		"vite": "^7.1.9"
 	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@tailwindcss/oxide",
-			"esbuild"
-		]
-	},
 	"dependencies": {
 		"@fontsource/arimo": "^5.2.8",
 		"@fontsource/fira-mono": "^5.2.7",
