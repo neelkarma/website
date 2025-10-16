@@ -1,37 +1,40 @@
 {
-	"name": "website",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check ."
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-static": "^3.0.10",
-		"@sveltejs/kit": "^2.46.3",
-		"@sveltejs/vite-plugin-svelte": "^6.2.1",
-		"@tailwindcss/typography": "^0.5.19",
-		"@tailwindcss/vite": "^4.1.14",
-		"prettier": "^3.6.2",
-		"prettier-plugin-svelte": "^3.4.0",
-		"prettier-plugin-tailwindcss": "^0.6.14",
-		"svelte": "^5.39.11",
-		"svelte-check": "^4.3.2",
-		"tailwindcss": "^4.1.14",
-		"typescript": "^5.9.3",
-		"vite": "^7.1.9"
-	},
-	"dependencies": {
-		"@fontsource/arimo": "^5.2.8",
-		"@fontsource/fira-mono": "^5.2.7",
-		"@fontsource/rubik": "^5.2.8",
-		"iconify-icon": "^3.0.1"
-	}
+  "name": "website",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.46.3",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.1.14",
+    "mdsvex": "^0.12.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "shiki": "^3.13.0",
+    "svelte": "^5.39.11",
+    "svelte-check": "^4.3.2",
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5.9.3",
+    "vite": "npm:rolldown-vite@latest"
+  },
+  "dependencies": {
+    "@fontsource/arimo": "^5.2.8",
+    "@fontsource/fira-mono": "^5.2.7",
+    "@fontsource/rubik": "^5.2.8",
+    "feed": "^5.1.0",
+    "iconify-icon": "^3.0.1"
+  }
 }
