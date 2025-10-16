@@ -9,6 +9,10 @@
   <title>iamkneel | writing</title>
 </svelte:head>
 
+<div class="mb-4">
+  <TextLink href="/">Back to index</TextLink>
+</div>
+
 <div class="space-y-4">
   <h1 class="font-header text-2xl font-bold">writing</h1>
   <p>This blog is also available as an <TextLink href="/writing/rss.xml">RSS Feed</TextLink></p>

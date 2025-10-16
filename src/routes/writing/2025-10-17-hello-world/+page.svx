@@ -1,0 +1,19 @@
+---
+title: Hello world!
+description: First blog post.
+date: 2025-10-17
+---
+
+Ah, nice, the post layout is finally working. Took long enough.
+
+**Hi there!** I am Neel, and welcome to my blog! At the time of writing, I am nearing the end of my first year of university, where I am studying Computer Science and Electrical Engineering, while also mentoring a few [FRC](https://www.firstinspires.org/programs/frc/) teams on the side.
+
+Here are some things you should expect from this blog:
+
+- Technical deep-dives on topics I care about
+- Explainers on what things I've been doing, the challenges I've encountered and the ways I've gone about solving problems
+- Devlogs for projects that I am working on
+- Infodumps about interesting/cool/(insert positive adjective here) things
+- (insert literally anything I can think about here)
+
+This first iteration of the blog system (and the entire website, to be honest) is very bare-bones and rough - expect a lot more polish in the future, as well as a writeup on how this website was made!

@@ -7,6 +7,10 @@
   <title>iamkneel | about</title>
 </svelte:head>
 
+<div class="mb-4">
+  <TextLink href="/">Back to index</TextLink>
+</div>
+
 <ul class="list-inside list-disc space-y-1.5">
   <li>19, Self-Taught Developer, Engineer, Teacher, and Student</li>
   <li>I like making computers do cool stuff!</li>
