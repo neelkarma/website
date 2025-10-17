@@ -14,7 +14,7 @@
   <title>iamkneel</title>
 </svelte:head>
 
-<p class="text-lg">19 🇦🇺, Self-Taught Developer, Engineer, Teacher, and Student</p>
+<p class="text-lg">🇦🇺 Self-Taught Developer, Engineer, Teacher, and Student</p>
 
 <div class="space-y-4">
   <h2 class="font-header text-2xl font-bold">projects</h2>

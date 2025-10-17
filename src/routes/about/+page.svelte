@@ -12,7 +12,7 @@
 </div>
 
 <ul class="list-inside list-disc space-y-1.5">
-  <li>19, Self-Taught Developer, Engineer, Teacher, and Student</li>
+  <li>🇦🇺 Self-Taught Developer, Engineer, Teacher, and Student</li>
   <li>I like making computers do cool stuff!</li>
   <li>
     Studying Computer Science + Electrical Engineering @ <TextLink href="https://www.unsw.edu.au"
