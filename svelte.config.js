@@ -1,12 +1,12 @@
-import { escapeSvelte, mdsvex } from "mdsvex";
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import { escapeSvelte, mdsvex } from "mdsvex";
 import { createHighlighter } from "shiki";
 
 const theme = "catppuccin-mocha";
 const highlighter = await createHighlighter({
   themes: [theme],
-  langs: ["c"],
+  langs: ["sh", "ini"],
 });
 
 const blogLayoutPath = new URL("./src/routes/writing/postlayout.svelte", import.meta.url).pathname;
