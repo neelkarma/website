@@ -15,18 +15,18 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.46.3",
+    "@sveltejs/kit": "^2.49.0",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.1.14",
+    "@tailwindcss/vite": "^4.1.17",
     "mdsvex": "^0.12.6",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.3",
     "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "shiki": "^3.13.0",
-    "svelte": "^5.39.11",
-    "svelte-check": "^4.3.2",
-    "tailwindcss": "^4.1.14",
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "shiki": "^3.17.0",
+    "svelte": "^5.45.2",
+    "svelte-check": "^4.3.4",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "vite": "npm:rolldown-vite@latest"
   },
@@ -35,6 +35,6 @@
     "@fontsource/fira-mono": "^5.2.7",
     "@fontsource/rubik": "^5.2.8",
     "feed": "^5.1.0",
-    "iconify-icon": "^3.0.1"
+    "iconify-icon": "^3.0.2"
   }
 }
