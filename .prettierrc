@@ -7,6 +7,14 @@
       "options": {
         "parser": "svelte"
       }
+    },
+    {
+      "files": "*.{svx,md}",
+      "options": {
+        "parser": "markdown",
+        "printWidth": 80,
+        "proseWrap": "always"
+      }
     }
   ],
   "tailwindStylesheet": "./src/app.css"
