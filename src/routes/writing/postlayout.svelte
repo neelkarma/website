@@ -1,7 +1,7 @@
 <script lang="ts">
+  import TextLink from "$lib/components/TextLink.svelte";
   import type { Snippet } from "svelte";
   import { DATE_FORMAT } from ".";
-  import TextLink from "$lib/components/TextLink.svelte";
 
   type Props = {
     title: string;
@@ -28,3 +28,5 @@
     {@render children?.()}
   </article>
 </div>
+
+<TextLink href="/writing">Back to writing</TextLink>
