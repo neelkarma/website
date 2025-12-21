@@ -11,7 +11,7 @@
   <img class="rounded-lg" alt="Hands pinching a rectangle into existence" src={handiworkImage} />
 
   <div class="flex flex-col gap-1.5">
-    <h1 class="font-header text-2xl font-bold">Handiwork</h1>
+    <h1 class="text-2xl font-bold">Handiwork</h1>
 
     <a
       href="https://github.com/neelkarma/handiwork"

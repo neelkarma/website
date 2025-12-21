@@ -17,7 +17,7 @@
 {/snippet}
 
 <div class="space-y-4">
-  <h2 class="font-header text-2xl font-bold">where to reach me</h2>
+  <h2 class="text-2xl font-bold">where to reach me</h2>
 
   <ul class="space-y-1">
     <li>

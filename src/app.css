@@ -4,11 +4,11 @@
 @theme {
   --font-*: initial;
   --font-body: "Rubik", sans-serif;
-  --font-header: "Fira Mono", monospace;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
   :root {
-    @apply bg-zinc-800 font-body text-zinc-300 md:bg-zinc-900;
+    @apply bg-zinc-800 font-body text-zinc-200 md:bg-zinc-900;
   }
 }

@@ -3,7 +3,7 @@
 </svelte:head>
 
 <div class="space-y-4">
-  <h1 class="font-header text-2xl font-bold">Error 404</h1>
+  <h1 class="text-2xl font-bold">Error 404</h1>
   <p>
     Looks like the page you were looking for doesn't exist! <a
       href="/"

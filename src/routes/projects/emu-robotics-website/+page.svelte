@@ -15,7 +15,7 @@
   />
 
   <div class="flex flex-col gap-1.5">
-    <h1 class="font-header text-2xl font-bold">EMU Robotics Website</h1>
+    <h1 class="text-2xl font-bold">EMU Robotics Website</h1>
 
     <div class="flex gap-2">
       <a href="https://emu-robotics.au" class="group flex max-w-fit items-center gap-1.5">

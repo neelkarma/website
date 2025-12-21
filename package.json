@@ -31,8 +31,7 @@
     "vite": "npm:rolldown-vite@latest"
   },
   "dependencies": {
-    "@fontsource/arimo": "^5.2.8",
-    "@fontsource/fira-mono": "^5.2.7",
+    "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/rubik": "^5.2.8",
     "feed": "^5.1.0",
     "iconify-icon": "^3.0.2"

@@ -14,7 +14,7 @@
 </div>
 
 <div class="space-y-4">
-  <h2 class="font-header text-2xl font-bold">projects</h2>
+  <h2 class="text-2xl font-bold">projects</h2>
   <p>
     This list is not extensive - you might find some more interesting things on my <TextLink
       href="https://github.com/neelkarma">GitHub</TextLink

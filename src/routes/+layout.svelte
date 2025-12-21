@@ -1,7 +1,9 @@
 <script lang="ts">
   import "../app.css";
   import "@fontsource/rubik";
-  import "@fontsource/fira-mono/500";
+  import "@fontsource/rubik/700";
+  import "@fontsource/jetbrains-mono";
+  import "@fontsource/jetbrains-mono/700";
   import "iconify-icon";
   import TextLink from "$lib/components/TextLink.svelte";
 
@@ -18,7 +20,7 @@
   <div class="flex flex-col gap-1.5 md:flex-row md:items-center">
     <a
       href="/"
-      class="max-w-fit bg-blue-600 px-2 py-1 font-header text-2xl font-bold text-white hover:bg-blue-800"
+      class="max-w-fit bg-blue-600 px-2 py-1 font-mono text-2xl font-bold text-white hover:bg-blue-800"
       >iamkneel</a
     >
     <span class="md:grow"></span>
