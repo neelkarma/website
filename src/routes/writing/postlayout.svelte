@@ -23,7 +23,7 @@
   <h3 class="text-zinc-400">{DATE_FORMAT.format(date)}</h3>
 
   <article
-    class="min-w-full prose prose-zinc prose-invert prose-headings:text-zinc-200 prose-a:text-zinc-300 prose-a:decoration-zinc-600 prose-a:underline-offset-4 prose-a:hover:decoration-zinc-200"
+    class="min-w-full prose prose-zinc prose-invert prose-p:text-zinc-200 prose-a:text-zinc-200 prose-headings:text-zinc-200 prose-a:decoration-zinc-600 prose-a:underline-offset-4 prose-a:hover:decoration-zinc-200"
   >
     {@render children?.()}
   </article>
