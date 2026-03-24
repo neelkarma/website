@@ -15,9 +15,7 @@
   <li>🇦🇺 Self-Taught Developer, Engineer, Teacher, and Student</li>
   <li>I like making computers do cool stuff!</li>
   <li>
-    Studying Computer Science + Electrical Engineering @ <TextLink href="https://www.unsw.edu.au"
-      >UNSW</TextLink
-    >
+    Studying Computer Science @ <TextLink href="https://www.unsw.edu.au">UNSW</TextLink>
   </li>
   <li>
     Teaching programming and robotics @ <TextLink href="https://www.stcatherines.nsw.edu.au/"
