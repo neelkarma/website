@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-  <title>iamkneel | writing</title>
+  <title>Neel Sharma | Writing</title>
 </svelte:head>
 
 <div class="mb-4">

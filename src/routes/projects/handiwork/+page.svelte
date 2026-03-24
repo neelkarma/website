@@ -3,6 +3,10 @@
   import handiworkImage from "./handiwork.jpg";
 </script>
 
+<svelte:head>
+  <title>Neel Sharma - Handiwork</title>
+</svelte:head>
+
 <div class="mb-4">
   <TextLink href="/projects">Back to projects</TextLink>
 </div>

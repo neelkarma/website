@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>iamkneel | 404</title>
+  <title>Neel Sharma | 404</title>
 </svelte:head>
 
 <div class="space-y-4">

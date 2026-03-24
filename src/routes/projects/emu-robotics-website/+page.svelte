@@ -3,6 +3,10 @@
   import emuRoboticsWebsiteImage from "./emu-robotics-website.png";
 </script>
 
+<svelte:head>
+  <title>Neel Sharma | EMU Robotics Website</title>
+</svelte:head>
+
 <div class="mb-4">
   <TextLink href="/projects">Back to projects</TextLink>
 </div>

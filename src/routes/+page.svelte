@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-  <title>iamkneel</title>
+  <title>Neel Sharma</title>
 </svelte:head>
 
 <p class="text-lg">🇦🇺 Self-Taught Developer, Engineer, Teacher, and Student</p>

@@ -14,6 +14,10 @@
   let date = $derived(new Date(dateString));
 </script>
 
+<svelte:head>
+  <title>Neel Sharma | {title}</title>
+</svelte:head>
+
 <div class="mb-4">
   <TextLink href="/writing">Back to writing</TextLink>
 </div>

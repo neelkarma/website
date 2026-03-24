@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-  <title>iamkneel</title>
+  <title>Neel Sharma</title>
 </svelte:head>
 
 <div
@@ -21,7 +21,7 @@
     <a
       href="/"
       class="max-w-fit bg-blue-600 px-2 py-1 font-mono text-2xl font-bold text-white hover:bg-blue-800"
-      >iamkneel</a
+      >Neel Sharma</a
     >
     <span class="md:grow"></span>
     <div class="flex gap-3 md:flex-row md:gap-4">
