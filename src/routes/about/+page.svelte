@@ -18,9 +18,11 @@
     Studying Computer Science @ <TextLink href="https://www.unsw.edu.au">UNSW</TextLink>
   </li>
   <li>
-    Was programming and robotics @ <TextLink href="https://www.stcatherines.nsw.edu.au/"
+    Teaching programming and robotics @ <TextLink href="https://emu-robotics.au"
+      >UNSW EMU Robotics</TextLink
+    > (previously <TextLink href="https://www.stcatherines.nsw.edu.au/"
       >St Catherine's High School</TextLink
-    > and now at <TextLink href="https://emu-robotics.au">EMU Robotics</TextLink>
+    >)
   </li>
   <li>Proficient in C, Python, JavaScript, TypeScript, Go, Java, and more&trade;</li>
   <li>
