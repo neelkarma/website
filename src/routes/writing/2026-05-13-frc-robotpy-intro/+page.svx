@@ -1,0 +1,444 @@
+---
+title: Python in FRC for existing students
+description: A zero-to-robot tutorial using the RobotPy FRC programming library.
+date: 2026-05-13
+---
+
+This blog post will serve as a simple guide on how to get started with
+[RobotPy](https://github.com/robotpy/mostrobotpy), the official Python library to program FRC
+robots! FRC students. By the end of this tutorial, you'll have made RobotPy code to drive a
+differential drivetrain using an Xbox Controller. This tutorial is targeted to existing FRC
+students, so I'll be assuming that you:
+
+- Have programmed an FRC Robot using the WPILib suite
+- Have basic command-line knowledge
+
+Let's get started!
+
+## Required Software
+
+Install the following if you don't have them already:
+
+- [WPILib](https://github.com/wpilibsuite/allwpilib/releases)
+- [Python](https://www.python.org/)
+
+**Important:** During Python installation, make sure the "Add Python to PATH" checkbox is checked!
+If you don't, then you will not be able to access the `python` or `pip` commands from the
+command-line (which are extremely extremely important).
+
+You can verify that Python was installed correctly by opening a terminal window, and running the
+following commands:
+
+```
+python --version
+pip --version
+```
+
+If both commands print out the versions of Python and `pip` installed respectively, then
+everything's fine!
+
+## Creating a RobotPy Project
+
+Since Python is a relatively recent addition to the list of languages officially supported by
+WPILib, there currently isn't a wizard built into WPILib's VS Code to create a RobotPy-based
+project. So, how do you create a project? Via the command-line!
+
+Open a terminal window, and use the `cd` command to navigate to where you keep your projects. For
+example, if you use your Documents folder, run `cd Documents`.
+
+RobotPy requires an empty folder to initialize. You can use the `mkdir` command to create a folder
+for the project, and then `cd` into it:
+
+```
+mkdir robotpy-intro
+cd robotpy-intro
+```
+
+The next step is to create a **virtual environment**. A virtual environment (or venv, for short) is
+like the
+[Mirror Dimension from Doctor Strange](https://marvelcinematicuniverse.fandom.com/wiki/Mirror_Dimension) -
+you can download code libraries from the internet into the venv, and they'll only affect _that_
+venv, and not your entire system. They are extremely common practice when using Python, because
+without them, you cannot have different projects that use different versions of the same package -
+your system would force a single version of the package, and would probably break one (or more) of
+your projects!
+
+You can create a virtual environment using this command (make sure you're running this in the
+project folder you created):
+
+```
+python -m venv .venv
+```
+
+Once the venv is created, you have to _activate_ it - continuing the analogy from earlier, this is
+like entering the Mirror Dimension. The method to activate a venv depends on what operating system
+and shell (command-line application) you're using:
+
+- If you're using PowerShell on Windows, use the command `.\.venv\Scripts\Activate.ps1`.
+  - _Note: If this creates some security-related error, running
+    `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force` should fix it._
+- If you're using Command Prompt on Windows, use the command `.\.venv\Scripts\activate.bat`
+- If you're using any POSIX-compliant shell (e.g. `bash` or `zsh`), use the command
+  `source ./.venv/bin/activate`
+
+If it worked, your prompt should have a `(.venv)` prefix now!
+
+_Note: To deactivate a venv, just run `deactivate`._
+
+Now that we are inside the venv, we can actually install RobotPy! Run this command:
+
+```
+pip install robotpy
+```
+
+This might take a few seconds, because it will download and install RobotPy. After it's finished,
+run this:
+
+```
+robotpy init
+```
+
+This will create some files in the project:
+
+- `.gitignore` - This file tells the version control software Git which files to ignore (e.g. any
+  simulation GUI window settings, Python cache files, etc.)
+- `pyproject.toml` - This file configures the currently enabled RobotPy modules, as well as any
+  additional (vendor) dependencies we want to use.
+- `robot.py` - This is where the code will go!
+
+To make sure all of the libraries are installed correctly, run `robotpy sync`.
+
+And that's it! We have created a RobotPy project. Go ahead and open the project folder in VS Code,
+and we'll continue from there.
+
+If VS Code prompts you to switch to the virtual environment, do so. Without it, VS Code will think
+that RobotPy doesn't exist!
+
+## Using `pyproject.toml`
+
+Open the `pyproject.toml` file. Here are the default contents at the time of writing:
+
+```toml
+#
+# Use this configuration file to control what RobotPy packages are installed
+# on your RoboRIO
+#
+
+[tool.robotpy]
+
+# Version of robotpy this project depends on
+robotpy_version = "2026.2.2"
+
+# Which optional robotpy components should be installed?
+# -> equivalent to `pip install robotpy[extra1, ...]
+components = [
+    #"all",
+    # "apriltag",
+    # "commands2",
+    # "cscore",
+    # "romi",
+    # "sim",
+    # "xrp",
+]
+
+# Other pip packages to install, such as vendor packages (each element
+# is equivalent to a line in requirements.txt)
+requires = []
+```
+
+This is a TOML file, which is a type of configuration file. It has lots of different options you can
+configure, but you probably only have to worry about the `components` and `requires` lists.
+
+The `components` list enables/disables the additional RobotPy modules. I like to uncomment (remove
+the `#` before) `"all"` to enable every module, but if you're running low on storage, it's also fine
+to uncomment only the specific modules you require. For example, if you only need the commands
+framework and simulation support, uncomment the `"commands2"` and `"sim"` lines.
+
+The `requires` list configures your vendor dependencies. Here are the
+[Python vendor dependencies listed in WPILib's docs](https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html#installing-libraries)
+at the time of writing:
+
+| Name                | `requires`                  |
+| ------------------- | --------------------------- |
+| CTRE Phoenix 6      | `phoenix6`                  |
+| CTRE Phoenix 5      | `robotpy-ctre`              |
+| REVLib              | `robotpy-rev`               |
+| PhotonVision        | `photonlibpy`               |
+| PathPlannerLib      | `robotpy-pathplannerlib`    |
+| ChoreoLib           | `sleipnirgroup-choreolib`   |
+| Playing With Fusion | `robotpy-playingwithfusion` |
+| Studica             | `robotpy-navx`              |
+| URCL                | `robotpy-urcl`              |
+
+So, for example, if you need Phoenix v6 and v5, REVLib, PhotonVision and PathPlanner, you'd make
+this change to `pyproject.toml`:
+
+```diff
+- requires = []
++ requires = ["phoenix6", "robotpy-ctre", "robotpy-rev", "photonlibpy", "robotpy-pathplannerlib"]
+```
+
+**Important:** Every time you modify `pyproject.toml`, you **must** run `robotpy sync` in the
+project directory. This ensures that all the dependencies defined in your `pyproject.toml` file are
+installed.
+
+## Actually Writing Code
+
+At long last, we can write code. Open the `robot.py` file.
+
+By default, this is the contents of `robot.py`:
+
+```py
+# TODO: insert robot code here
+```
+
+...there is no starter code. Don't worry, I've got you covered!
+
+Below is some code that allows you to control a differential drivetrain with an Xbox Controller
+using arcade-style controls. Paste it into `robot.py`.
+
+```py
+import wpilib
+from phoenix6.hardware import TalonFX
+from wpilib import TimedRobot, XboxController
+
+
+class Robot(TimedRobot):
+    leftMotor: TalonFX
+    rightMotor: TalonFX
+    controller: XboxController
+
+    def __init__(self):
+        """
+        This function is called upon program startup and
+        should be used for any initialization code.
+        """
+
+        super().__init__()
+
+        self.leftMotor = TalonFX(0)
+        self.rightMotor = TalonFX(1)
+        self.controller = XboxController(0)
+
+    def robotPeriodic(self):
+        """This function is called every robot tick."""
+        pass
+
+    def disabledInit(self):
+        """This function is called once when the robot is disabled."""
+        pass
+
+    def disabledPeriodic(self):
+        """This function is called every robot tick while the robot is disabled."""
+        pass
+
+    def autonomousInit(self):
+        """This function is run once each time the robot enters autonomous mode."""
+        pass
+
+    def autonomousPeriodic(self):
+        """This function is called periodically during autonomous."""
+        pass
+
+    def teleopInit(self):
+        """This function is called once each time the robot enters teleoperated mode."""
+        pass
+
+    def teleopPeriodic(self):
+        """This function is called periodically during teleoperated mode."""
+
+        steer = self.controller.getRightX()
+        throttle = -self.controller.getLeftY()
+
+        leftPower = steer + throttle
+        rightPower = steer - throttle
+
+        # Normalize the power if either exceeds the range [-1, 1]
+        maxAbsPower = max(abs(leftPower), abs(rightPower))
+        if maxAbsPower > 1.0:
+            leftPower /= maxAbsPower
+            rightPower /= maxAbsPower
+
+        self.leftMotor.set(leftPower)
+        self.rightMotor.set(rightPower)
+
+        print(f"leftPower, rightPower = {round(leftPower, 3)}, {round(rightPower, 3)}")
+
+    def testInit(self):
+        """This function is called once each time the robot enters test mode."""
+        pass
+
+    def testPeriodic(self):
+        """This function is called periodically during test mode."""
+        pass
+
+    def simulationPeriodic(self):
+        """This function is called periodically during simulation."""
+        pass
+
+
+if __name__ == "__main__":
+    wpilib.run(Robot)
+```
+
+To explain the code, I find it easier to compare each chunk of code with its Java counterpart,
+because RobotPy is largely made to mirror the API of WPILib Java.
+
+```py
+import wpilib
+from phoenix6.hardware import TalonFX
+from wpilib import TimedRobot, XboxController
+```
+
+```java
+// Java Equivalent:
+import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
+import com.ctre.phoenix6.hardware.TalonFX;
+```
+
+These are the modules we are importing from RobotPy. This allows us to use code from RobotPy to
+write code for our robot. In this case, we're importing the `wpilib` module, as well as the
+`TimedRobot` and `XboxController` from `wpilib`. We are also using the `phoenix6` vendor dependency,
+importing the `TalonFX` class from there.
+
+```py
+class Robot(TimedRobot):
+    leftMotor: TalonFX
+    rightMotor: TalonFX
+    controller: XboxController
+```
+
+```java
+// Java Equivalent:
+public class Robot extends TimedRobot {
+    TalonFX leftMotor;
+    TalonFX rightMotor;
+    XboxController controller;
+    // ...
+}
+```
+
+These lines define our `Robot` class as a subclass of `TimedRobot`, and define the properties of our
+`Robot` class (`leftMotor`, `rightMotor` and `controller`).
+
+```py
+def __init__(self):
+    """
+    This function is called upon program startup and
+    should be used for any initialization code.
+    """
+
+    super().__init__()
+
+    self.leftMotor = TalonFX(0)
+    self.rightMotor = TalonFX(1)
+    self.controller = XboxController(0)
+```
+
+```java
+// Java Equivalent:
+public Robot() {
+    this.leftMotor = new TalonFX(0);
+    this.rightMotor = new TalonFX(1);
+    this.controller = new XboxController(0);
+}
+```
+
+The `__init__` method in Python is the constructor of the class - it gets called once when an
+instance of the class is created, or in our case, once when the robot starts. This is where we
+actually create the `TalonFX` and `XboxController` instances and set the instance properties
+`leftMotor`, `rightMotor` and `controller`.
+
+You might have noticed the line `super().__init__()` in the Python implementation, which is absent
+from the Java equivalent. `super().__init__()` tells Python to run the constructor for the
+underlying `TimedRobot` class in addition to our own code. A similar line is not needed in Java
+because Java's default behaviour is to run `TimedRobot`'s constructor automatically, without us
+explicitly needing to tell it to.
+
+I'm going to skip the empty lifecycle methods (`robotPeriodic`, `disabledInit`, `disabledPeriodic`,
+etc.) for brevity, and because they don't differ much between Python and Java.
+
+```py
+def teleopPeriodic(self):
+    """This function is called periodically during teleoperated mode."""
+
+    steer = self.controller.getRightX()
+    throttle = -self.controller.getLeftY()
+
+    leftPower = steer + throttle
+    rightPower = steer - throttle
+
+    # Normalize the power if either exceeds the range [-1, 1]
+    maxAbsPower = max(abs(leftPower), abs(rightPower))
+    if maxAbsPower > 1.0:
+        leftPower /= maxAbsPower
+        rightPower /= maxAbsPower
+
+    self.leftMotor.set(leftPower)
+    self.rightMotor.set(rightPower)
+
+    print(f"leftPower, rightPower = {round(leftPower, 3)}, {round(rightPower, 3)}")
+```
+
+```java
+// Java Equivalent:
+@Override
+public void teleopPeriodic() {
+    double steer = this.controller.getRightX();
+    double throttle = -this.controller.getLeftY();
+
+    double leftPower = steer + throttle;
+    double rightPower = steer - throttle;
+
+    double maxAbsPower = Math.max(Math.abs(leftPower), Math.abs(rightPower));
+    if (maxAbsPower > 1.0) {
+        leftPower /= maxAbsPower;
+        rightPower /= maxAbsPower;
+    }
+
+    this.leftMotor.set(leftPower);
+    this.rightMotor.set(rightPower);
+
+    System.out.printf("leftPower, rightPower = %.3f, %.3f%n", leftPower, rightPower);
+}
+```
+
+This is a standard differential arcade drive algorithm - we read in our `steer`ing and `throttle`
+values, and then do a bit of math to compute what duty cycles we should send to our `leftMotor` and
+`rightMotor`.
+
+```py
+if __name__ == "__main__":
+    wpilib.run(Robot)
+```
+
+These two lines are present at the end of the Python file - they are responsible for actually
+creating an instance of `Robot` and running it when you run the Python script directly. In a way,
+you could say they're analogous to the `Main.java` file in a Java-based project.
+
+## Simulation
+
+To actually see the code in action, you can run `robotpy sim` to simulate the robot code! This will
+open a SimGUI window, similar to a Java or C++-based project, and you can check that the code works
+by following these steps:
+
+1. Connect an Xbox Controller (or similar) to your laptop
+2. Ensure that Joystick #0 is set to your controller in SimGUI
+3. Switch to Teleoperated mode
+4. Play with the joysticks and watch the console output - you'll see the left and right power values
+   being printed out!
+
+## Deployment
+
+If you have an actual robot connected to your computer, all you have to do to deploy the code is run
+`robotpy deploy`.
+
+## Conclusion
+
+Congratulations, you have successfully created your first fully-functioning RobotPy project! Here
+are some useful links if you're interested in learning more:
+
+- [Various RobotPy Example Projects](https://github.com/wpilibsuite/allwpilib/tree/main/robotpyExamples)
+- [RobotPy API Docs](https://robotpy.readthedocs.io/projects/robotpy/en/stable/)
+- [WPILib Python Docs](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-4/creating-test-drivetrain-program-cpp-java-python.html#creating-a-new-wpilib-project-python)

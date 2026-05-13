@@ -6,7 +6,7 @@ import { createHighlighter } from "shiki";
 const theme = "catppuccin-mocha";
 const highlighter = await createHighlighter({
   themes: [theme],
-  langs: ["sh", "ini"],
+  langs: ["sh", "ini", "py", "toml", "java", "diff"],
 });
 
 const blogLayoutPath = new URL("./src/routes/writing/postlayout.svelte", import.meta.url).pathname;
