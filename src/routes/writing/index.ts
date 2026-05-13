@@ -35,7 +35,6 @@ export async function readAllMetadata() {
       ) {
         throw new Error(`Incorrect metadata types in "${filename}"`);
       }
-      console.log();
 
       return {
         // trimming off the "./" and "/+page.svx"
@@ -47,7 +46,7 @@ export async function readAllMetadata() {
     }),
   );
 
-  allMetadata.sort((a, b) => b.date.getDate() - a.date.getDate());
+  allMetadata.sort((a, b) => b.date.getTime() - a.date.getTime());
 
   return allMetadata;
 }
