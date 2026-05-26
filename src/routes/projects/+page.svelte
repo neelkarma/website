@@ -3,6 +3,7 @@
   import ProjectCard from "./ProjectCard.svelte";
   import emuRoboticsWebsiteImage from "./emu-robotics-website/emu-robotics-website.png";
   import handiworkImage from "./handiwork/handiwork.jpg";
+  import websiteImage from "./personal-website/personal-website.png";
 </script>
 
 <svelte:head>
@@ -25,6 +26,9 @@
       EMU Robotics Website
     </ProjectCard>
     <ProjectCard href="/projects/handiwork" image={handiworkImage}>Handiwork</ProjectCard>
+    <ProjectCard href="/projects/personal-website" image={websiteImage}
+      >Personal Website</ProjectCard
+    >
   </div>
   <p>More to be added in the near future&trade;...</p>
 </div>
