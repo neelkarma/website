@@ -1,0 +1,109 @@
+---
+title: Running UNSW CSE commands when working locally
+description: "Or: I wrote CSERun in 20 lines of bash."
+date: 2026-06-07
+---
+
+I'm currently taking [COMP6991](https://handbook.unsw.edu.au/undergraduate/courses/2026/comp6991),
+UNSW's Rust course. The course is great, however, due to the way Rust is set up on UNSW CSE's
+servers, you cannot use any remote development tools, like SSHFS or
+[Zed's Remote Development](https://zed.dev/docs/remote-development) feature, to complete coursework
+on their servers. This means that you lose the ability to run `autotest`, the test suite provided by
+the course, unless you do your work entirely inside SSH or VNC.
+
+To bypass this restriction, my tutor recommended [CSERun](https://cserun.bojin.co/) - it's a simple
+tool that copies your current working directory from your computer to CSE's servers and then runs a
+given command inside the remote copy - so you can copy your local project to CSE's server and then
+run `autotest` in the server.
+
+...but there is absolutely no need for this to be a 4 MB Rust binary with 96 crate dependencies!
+(Yes, I built it myself and checked!)
+
+So, here's the same thing, implemented in a 20-line shell script:
+
+```sh
+#!/usr/bin/env sh
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <command> [command to run...]" >&2
+    exit 1
+fi
+
+CWD_NAME=$(basename "$PWD")
+REMOTE_HOST="<INSERT ZID HERE>@login.cse.unsw.edu.au"
+REMOTE_PATH="~/.runsw"
+
+# copy cwd to remote, ignoring .gitignore and .git
+rsync -azP --delete \\
+    --exclude=.git \\
+    --filter="dir-merge,- .gitignore" \\
+    ./ "$REMOTE_HOST:$REMOTE_PATH/$CWD_NAME/"
+
+# run provided command
+ssh -t "$REMOTE_HOST" "cd $REMOTE_PATH/$CWD_NAME && $*"
+```
+
+Now, credit where credit is due, this version is less user-friendly than CSERun. Specifically, you
+need to create the `~/.runsw` directory in the CSE server before using the script, otherwise `rsync`
+will fail.
+
+Additionally, for a more frictionless experience, it's best if you set up SSH keys for logging onto
+the CSE servers. If you don't, you'll have to type in your zPass a _lot_. To create SSH keys and
+register them with CSE, follow these steps:
+
+1. Use `ssh-keygen -t ed25519` to generate a keypair.
+2. Go to `~/.ssh` and copy the contents of the generated file that ends in `.pub` - this is your
+   public key.
+3. `ssh` into the CSE server and append the contents of the `.pub` file to `~/.ssh/authorized_keys`
+   (if the file isn't there, create it and `chmod 600` it so only you can view and modify it)
+4. In your local machine, add this to your `~/.ssh/config`, replacing the values as necessary:
+
+```
+Host unsw
+  HostName login.cse.unsw.edu.au
+  IdentityFile <INSERT PATH TO THE NON-.pub GENERATED KEY FILE HERE>
+  User <INSERT ZID HERE>
+```
+
+Now, you can use `ssh unsw` instead of `ssh zID@login.cse.unsw.edu.au` for a secure, passwordless
+SSH login experience!
+
+To make the script use your newly created keys, simply set `REMOTE_HOST` to `"unsw"`:
+
+```diff
+- REMOTE_HOST="<INSERT ZID HERE>@login.cse.unsw.edu.au"
++ REMOTE_HOST="unsw"
+```
+
+After that, the script won't prompt you for your zPass a million times!
+
+Here's an example of me running the autotests for the first lab of 6991:
+
+```
+$ runsw 6991 autotest
+sending incremental file list
+./
+.gitignore
+              7 100%    0.00kB/s    0:00:00 (xfr#1, to-chk=4/6)
+Cargo.lock
+            153 100%  149.41kB/s    0:00:00 (xfr#2, to-chk=3/6)
+Cargo.toml
+            178 100%  173.83kB/s    0:00:00 (xfr#3, to-chk=2/6)
+src/
+src/main.rs
+            435 100%  141.60kB/s    0:00:00 (xfr#4, to-chk=0/6)
+Found cargo project: mini_grep
+Located autotests for mini_grep
+6991 cargo build --target-dir target # crate.tar
+   Compiling mini_grep v0.1.0 (/tmp/tmpilav8beq/autotest)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.33s
+Test 0 (./target/debug/mini_grep foo) - passed
+Test 1 (./target/debug/mini_grep hi) - passed
+Test 2 (./target/debug/mini_grep HI) - passed
+Test 3 (./target/debug/mini_grep '😂') - passed
+4 tests passed 0 tests failed
+Connection to login.cse.unsw.edu.au closed.
+```
+
+Until next time!
