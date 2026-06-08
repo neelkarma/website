@@ -5,7 +5,7 @@
 
   let props: Props = $props();
 
-  let { children } = props;
+  let { children } = $derived(props);
 </script>
 
 <a

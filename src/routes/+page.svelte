@@ -7,7 +7,7 @@
   import { DATE_FORMAT } from "./writing";
 
   let { data } = $props();
-  let { posts } = data;
+  let { posts } = $derived(data);
 </script>
 
 <svelte:head>
