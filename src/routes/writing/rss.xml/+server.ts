@@ -5,6 +5,7 @@ export const prerender = true;
 
 export const GET = async () => {
   const posts = await readAllMetadata();
+  const currentYear = new Date().getFullYear();
 
   const feed = new Feed({
     title: "iamkneel's writing",
@@ -12,7 +13,7 @@ export const GET = async () => {
     id: "https://iamkneel.dev/writing",
     link: "https://iamkneel.dev/writing",
     language: "en",
-    copyright: "All rights reserved 2025, Neel Sharma",
+    copyright: `All rights reserved ${currentYear}, Neel Sharma`,
     updated: posts[0].date,
     feedLinks: {
       rss: "https://iamkneel.dev/writing/rss.xml",
