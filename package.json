@@ -36,6 +36,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/rubik": "^5.2.8",
     "feed": "^5.2.1",
-    "iconify-icon": "^3.0.2"
+    "iconify-icon": "^3.0.2",
+    "valibot": "^1.4.2"
   }
 }
