@@ -8,7 +8,7 @@ const ModuleSchema = v.object({
     date: v.pipe(v.string(), v.toDate()),
     draft: v.optional(v.boolean(), false)
   })
-})
+});
 
 export const DATE_FORMAT = new Intl.DateTimeFormat("en-AU", {
   day: "numeric",
