@@ -15,7 +15,14 @@
   <li>🇦🇺 Self-Taught Developer, Engineer, Teacher, and Student</li>
   <li>I like making computers do cool stuff!</li>
   <li>
-    Studying Computer Science @ <TextLink href="https://www.unsw.edu.au">UNSW</TextLink>
+    Currently developing software @ <TextLink href="https://www.swipejobs.com/"
+      >SwipeJobs</TextLink
+    >
+  </li>
+  <li>
+    Studying Computer Science @ <TextLink href="https://www.unsw.edu.au"
+      >UNSW</TextLink
+    >
   </li>
   <li>
     Teaching programming and robotics @ <TextLink href="https://emu-robotics.au"
@@ -24,7 +31,10 @@
       >St Catherine's High School</TextLink
     >)
   </li>
-  <li>Proficient in C, Python, JavaScript, TypeScript, Go, Java, and more&trade;</li>
+  <li>
+    Proficient in TypeScript, JavaScript, C, Python, Rust, Go, Java, and
+    more&trade;
+  </li>
   <li>
     Daily driving Arch Linux <span class="text-gray-500">(btw)</span>
   </li>
