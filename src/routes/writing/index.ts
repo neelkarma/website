@@ -27,7 +27,7 @@ export async function readAllMetadata() {
       return {
         // trim the "./" and "/+page.svx"
         slug: filename.substring(2, filename.length - 10),
-        title,
+        title: draft ? `(DRAFT) ${title}` : title,
         description,
         date: new Date(date),
       };
