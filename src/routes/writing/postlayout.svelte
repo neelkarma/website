@@ -1,5 +1,5 @@
 <script lang="ts">
-  import TextLink from "$lib/components/TextLink.svelte";
+  import TextLink from "#lib/components/TextLink.svelte";
   import type { Snippet } from "svelte";
   import { DATE_FORMAT } from ".";
 

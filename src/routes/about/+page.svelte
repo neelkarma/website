@@ -1,6 +1,6 @@
 <script>
-  import Contact from "$lib/components/Contact.svelte";
-  import TextLink from "$lib/components/TextLink.svelte";
+  import Contact from "#lib/components/Contact.svelte";
+  import TextLink from "#lib/components/TextLink.svelte";
 </script>
 
 <svelte:head>

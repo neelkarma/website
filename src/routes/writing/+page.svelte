@@ -1,5 +1,5 @@
 <script>
-  import TextLink from "$lib/components/TextLink.svelte";
+  import TextLink from "#lib/components/TextLink.svelte";
   import { DATE_FORMAT } from ".";
 
   let { data } = $props();

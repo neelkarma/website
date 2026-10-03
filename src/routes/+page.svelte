@@ -1,6 +1,6 @@
 <script>
-  import Contact from "$lib/components/Contact.svelte";
-  import TextLink from "$lib/components/TextLink.svelte";
+  import Contact from "#lib/components/Contact.svelte";
+  import TextLink from "#lib/components/TextLink.svelte";
   import emuRoboticsWebsiteImage from "./projects/emu-robotics-website/emu-robotics-website.png";
   import handiworkImage from "./projects/handiwork/handiwork.jpg";
   import ProjectCard from "./projects/ProjectCard.svelte";

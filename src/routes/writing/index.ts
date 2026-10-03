@@ -1,4 +1,4 @@
-import { dev } from "$app/environment";
+import { dev } from "$app/env";
 import * as v from "valibot";
 
 const ModuleSchema = v.object({
@@ -6,8 +6,8 @@ const ModuleSchema = v.object({
     title: v.string(),
     description: v.string(),
     date: v.pipe(v.string(), v.toDate()),
-    draft: v.optional(v.boolean(), false)
-  })
+    draft: v.optional(v.boolean(), false),
+  }),
 });
 
 export const DATE_FORMAT = new Intl.DateTimeFormat("en-AU", {
@@ -21,7 +21,7 @@ export async function readAllMetadata() {
   const allMetadata = await Promise.all(
     Object.entries(files).map(async ([filename, promise]) => {
       const module = await promise();
-      const { metadata } = v.parse(ModuleSchema, module)
+      const { metadata } = v.parse(ModuleSchema, module);
       const { title, description, date, draft } = metadata;
       if (draft && !dev) return null;
       return {
@@ -32,7 +32,7 @@ export async function readAllMetadata() {
         date: new Date(date),
       };
     }),
-  )
+  );
 
   return allMetadata
     .filter((metadata) => metadata !== null)

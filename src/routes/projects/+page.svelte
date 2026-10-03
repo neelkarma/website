@@ -1,5 +1,5 @@
 <script>
-  import TextLink from "$lib/components/TextLink.svelte";
+  import TextLink from "#lib/components/TextLink.svelte";
   import ProjectCard from "./ProjectCard.svelte";
   import emuRoboticsWebsiteImage from "./emu-robotics-website/emu-robotics-website.png";
   import handiworkImage from "./handiwork/handiwork.jpg";
