@@ -3,6 +3,7 @@ import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { escapeSvelte, mdsvex } from "mdsvex";
 import { createHighlighter } from "shiki";
 import tailwindcss from "@tailwindcss/vite";
+import Icons from "unplugin-icons/vite";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
 
@@ -37,5 +38,6 @@ export default defineConfig({
       extensions: [".svelte", ".svx"],
       adapter: adapter(),
     }),
+    Icons({ compiler: "svelte", scale: 1 }),
   ],
 });

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import LucideCodeXml from "~icons/lucide/code-xml";
   import TextLink from "#lib/components/TextLink.svelte";
   import handiworkImage from "./handiwork.jpg";
   import ballVideo from "./ball.mp4";
@@ -44,7 +45,7 @@
       href="https://github.com/neelkarma/handiwork"
       class="group flex max-w-fit items-center gap-1.5"
     >
-      <iconify-icon icon="lucide:code-xml"></iconify-icon>
+      <LucideCodeXml />
       <span
         class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
       >

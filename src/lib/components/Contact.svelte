@@ -1,4 +1,10 @@
 <script lang="ts">
+  import type { Component } from "svelte";
+  import Fa7BrandsCodepen from "~icons/fa7-brands/codepen";
+  import Fa7BrandsDiscord from "~icons/fa7-brands/discord";
+  import Fa7BrandsGithub from "~icons/fa7-brands/github";
+  import Fa7BrandsLinkedin from "~icons/fa7-brands/linkedin";
+
   let showDiscordCopiedTimeout = $state<number | null>(null);
   function handleCopyDiscord() {
     navigator.clipboard.writeText("iamkneel");
@@ -7,9 +13,9 @@
   }
 </script>
 
-{#snippet link(icon: string, label: string, href: string)}
+{#snippet link(Icon: Component, label: string, href: string)}
   <a {href} class="group flex max-w-fit items-center gap-2">
-    <iconify-icon {icon}></iconify-icon>
+    <Icon />
     <span class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
       >{label}</span
     >
@@ -22,7 +28,7 @@
   <ul class="space-y-1">
     <li>
       <button onclick={handleCopyDiscord} class="group flex cursor-pointer items-center gap-2">
-        <iconify-icon icon="fa7-brands:discord"></iconify-icon>
+        <Fa7BrandsDiscord />
         <span
           class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
         >
@@ -35,17 +41,17 @@
       </button>
     </li>
     <li>
-      {@render link("fa7-brands:github", "neelkarma", "https://github.com/neelkarma")}
+      {@render link(Fa7BrandsGithub, "neelkarma", "https://github.com/neelkarma")}
     </li>
     <li>
       {@render link(
-        "fa7-brands:linkedin",
+        Fa7BrandsLinkedin,
         "Neel Sharma",
         "https://www.linkedin.com/in/neel-sharma-233645257/",
       )}
     </li>
     <li>
-      {@render link("fa7-brands:codepen", "iamkneel", "https://codepen.io/iamkneel")}
+      {@render link(Fa7BrandsCodepen, "iamkneel", "https://codepen.io/iamkneel")}
     </li>
   </ul>
 </div>

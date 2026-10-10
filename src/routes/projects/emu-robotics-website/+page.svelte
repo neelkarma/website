@@ -1,4 +1,6 @@
 <script lang="ts">
+  import LucideExternalLink from "~icons/lucide/external-link";
+  import LucideCodeXml from "~icons/lucide/code-xml";
   import TextLink from "#lib/components/TextLink.svelte";
   import emuRoboticsWebsiteImage from "./emu-robotics-website.png";
 </script>
@@ -23,7 +25,7 @@
 
     <div class="flex gap-2">
       <a href="https://emu-robotics.au" class="group flex max-w-fit items-center gap-1.5">
-        <iconify-icon icon="lucide:external-link"></iconify-icon>
+        <LucideExternalLink />
         <span
           class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
         >
@@ -35,7 +37,7 @@
         href="https://github.com/emu4729/emu4729-website"
         class="group flex max-w-fit items-center gap-1.5"
       >
-        <iconify-icon icon="lucide:code-xml"></iconify-icon>
+        <LucideCodeXml />
         <span
           class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
         >

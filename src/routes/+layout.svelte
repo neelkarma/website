@@ -4,7 +4,6 @@
   import "@fontsource/rubik/700";
   import "@fontsource/jetbrains-mono";
   import "@fontsource/jetbrains-mono/700";
-  import "iconify-icon";
   import TextLink from "#lib/components/TextLink.svelte";
 
   let { children } = $props();
