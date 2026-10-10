@@ -5,18 +5,22 @@
   import Fa7BrandsGithub from "~icons/fa7-brands/github";
   import Fa7BrandsLinkedin from "~icons/fa7-brands/linkedin";
 
-  let showDiscordCopiedTimeout = $state<number | null>(null);
+  let showDiscordCopiedTimeout = $state<ReturnType<typeof setTimeout> | null>(null);
   function handleCopyDiscord() {
     navigator.clipboard.writeText("iamkneel");
     if (showDiscordCopiedTimeout) clearTimeout(showDiscordCopiedTimeout);
-    showDiscordCopiedTimeout = setTimeout(() => (showDiscordCopiedTimeout = null), 1000);
+    showDiscordCopiedTimeout = setTimeout(
+      () => (showDiscordCopiedTimeout = null),
+      1000,
+    );
   }
 </script>
 
 {#snippet link(Icon: Component, label: string, href: string)}
   <a {href} class="group flex max-w-fit items-center gap-2">
     <Icon />
-    <span class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
+    <span
+      class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
       >{label}</span
     >
   </a>
@@ -27,7 +31,10 @@
 
   <ul class="space-y-1">
     <li>
-      <button onclick={handleCopyDiscord} class="group flex cursor-pointer items-center gap-2">
+      <button
+        onclick={handleCopyDiscord}
+        class="group flex cursor-pointer items-center gap-2"
+      >
         <Fa7BrandsDiscord />
         <span
           class="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-zinc-200"
@@ -41,7 +48,11 @@
       </button>
     </li>
     <li>
-      {@render link(Fa7BrandsGithub, "neelkarma", "https://github.com/neelkarma")}
+      {@render link(
+        Fa7BrandsGithub,
+        "neelkarma",
+        "https://github.com/neelkarma",
+      )}
     </li>
     <li>
       {@render link(
@@ -51,7 +62,11 @@
       )}
     </li>
     <li>
-      {@render link(Fa7BrandsCodepen, "iamkneel", "https://codepen.io/iamkneel")}
+      {@render link(
+        Fa7BrandsCodepen,
+        "iamkneel",
+        "https://codepen.io/iamkneel",
+      )}
     </li>
   </ul>
 </div>
