@@ -1,9 +1,9 @@
 <script lang="ts">
   import "../app.css";
   import "@fontsource/rubik";
-  import "@fontsource/rubik/700";
+  import "@fontsource/rubik/700.css";
   import "@fontsource/jetbrains-mono";
-  import "@fontsource/jetbrains-mono/700";
+  import "@fontsource/jetbrains-mono/700.css";
   import TextLink from "#lib/components/TextLink.svelte";
 
   let { children } = $props();
