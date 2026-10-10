@@ -19,10 +19,15 @@
 <div class="space-y-4">
   <h2 class="text-2xl font-bold">projects</h2>
   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
-    <ProjectCard href="/projects/emu-robotics-website" image={emuRoboticsWebsiteImage}>
+    <ProjectCard
+      href="/projects/emu-robotics-website"
+      image={emuRoboticsWebsiteImage}
+    >
       EMU Robotics Website
     </ProjectCard>
-    <ProjectCard href="/projects/handiwork" image={handiworkImage}>Handiwork</ProjectCard>
+    <ProjectCard href="/projects/handiwork" image={handiworkImage}>
+      Handiwork
+    </ProjectCard>
   </div>
   <TextLink href="/projects">See more projects</TextLink>
 </div>
